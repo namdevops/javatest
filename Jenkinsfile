@@ -39,6 +39,15 @@ pipeline {
                 echo 'staging '
                 }
             }
+         stage('prod approval') {
+            steps {
+                script{
+                    if(env.BRANCH_NAME == "master"){
+                        input("proceeed for production dep")
+                    }
+                }
+                }
+            }   
         
         stage('Deploy to prod') {
             steps {
