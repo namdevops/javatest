@@ -59,7 +59,10 @@ post {
             echo 'I am unstable :/'
         }
         failure {
-            echo 'I failed :('
+            failure {
+        mail to: 'team@example.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
         }
         changed {
             echo 'Things were different before...'
