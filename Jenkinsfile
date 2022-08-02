@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Deploy to pre production') {
             steps {
-                echo 'staging ....
+                echo 'staging '....
                 }
             }
         post {
